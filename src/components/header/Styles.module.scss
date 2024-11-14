@@ -16,6 +16,10 @@
         left: 0;
         right: 0;
         z-index: 100;
+
+        @media screen and (max-height: 500px) {
+            height: 15vh;
+        }
         
         section {
             display: flex;
@@ -125,7 +129,7 @@
     
                 .icon {
                     color: white;
-                    font-size: 1.5rem;
+                    font-size: 1.4rem;
                 }
             }
 
@@ -137,13 +141,18 @@
                 width: 250px;
                 height: 100vh;
                 top: 12vh;
-                background-color: #004d88;
+                z-index: 99;
+                background-color: #013559;
+            }
+
+            @media screen and (max-height: 500px) {
+                top: 15vh;
             }
         }
 
         .toggle {
             display: none;
-            font-size: 3rem;
+            font-size: 2.7rem;
             color: white;
             opacity: 0.8;
             cursor: pointer;
@@ -154,7 +163,7 @@
 
             @media (max-width: 880px) {
                 display: block;
-                font-size:  2.7rem;
+                font-size:  2.5rem;
             }
         }
 
