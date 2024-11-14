@@ -1,11 +1,26 @@
+import React, { useState, useEffect } from "react";
 import S from "./Styles.module.scss"
 import { Link } from "react-router-dom";
 import Logo from "../../assets/livro-logo.png"
 
 // icons
-import { IoSearchSharp } from "react-icons/io5";
+import { AiFillCloseSquare } from "react-icons/ai";
+import { IoSearchSharp, IoMenu  } from "react-icons/io5";
 
 const Header = () => {
+
+    const [toggle, setToggle] = useState(true);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 500) {
+                setToggle(false); // Fecha o menu automaticamente em telas grandes
+            }
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
         <header className={S.header}>
 
@@ -22,7 +37,7 @@ const Header = () => {
                         Livros Vai na Web
                     </h1>
                 </section>
-                <nav>
+                <nav style={{right: toggle ?  "-250px": "0" }}>
                     <div className={S.menuArea}>
                         <ul className={S.list}>
                             <Link className={S.link} t0="/"><li>Início</li></Link>
@@ -38,6 +53,16 @@ const Header = () => {
                         <IoSearchSharp className={S.icon} />
                     </div>
                 </nav>
+                { toggle ? 
+                    <IoMenu 
+                        className={S.toggle}
+                        onClick={() => setToggle(!toggle)}
+                    /> :
+                    <AiFillCloseSquare 
+                        className={S.toggle}
+                        onClick={() => setToggle(!toggle)}
+                    />
+                }
             </section>
 
             <sectio className={S.banner}>
@@ -47,7 +72,7 @@ const Header = () => {
                     </p>
                 </div>
             </sectio>
-
+            
         </header>
     )
 }
