@@ -1,0 +1,30 @@
+
+
+.card {
+    display: flex;
+    width: 240px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    border: solid 2px #005695;
+    padding: 20px;
+    text-align: center;
+
+    img {
+        width: 100px;
+        height: 130px;
+    }
+
+    h3 {    
+        font-size: 1rem;
+        font-weight: 900;
+        padding: 5px 0;
+    }
+
+    p {
+        font-size: 0.9rem;
+        font-weight: 400;
+    }
+
+}

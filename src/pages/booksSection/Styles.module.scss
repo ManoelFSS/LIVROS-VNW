@@ -1,0 +1,19 @@
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 12vh);
+    padding: 20px 0;
+
+    .container_books {
+        width: 90%;
+
+        .books_area {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+    }
+}
