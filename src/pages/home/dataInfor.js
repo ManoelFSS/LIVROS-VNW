@@ -1,7 +1,7 @@
 
 // images
 import Baalance from "../../assets/images/balance.png"
-import Community from "../../assets/images/Community.png"
+import Community from "../../assets/images/community.png"
 import Readin from "../../assets/images/readin.png"
 import Transform from "../../assets/images/transform.png"
 
