@@ -28,16 +28,19 @@ const Header = () => {
     }, []);
 
     const hendleSearch = () => {
-        event.preventDefault();
-        navigate("/books")
+
         setLoading(true);
+
         if (search === "") {
             setBookSearch(null);
             setLoading(false);
             return;
         }
+
+        navigate("/books")
         setBookSearch(search);
         setSearch("");
+
     };
 
     const hendlToggle = () => {
@@ -78,8 +81,7 @@ const Header = () => {
                             value={search}
                             placeholder="O que você procura?"
                             onChange={(e) => setSearch(e.target.value)}
-                            onKeyDown={(e) => e.key === "Enter" && hendleSearch()}
-                            onClick={(e) => e.stopPropagation()} 
+                            onKeyDown={(e) => e.key === "Enter" && hendleSearch()} 
                         />
                         
                         <div 
