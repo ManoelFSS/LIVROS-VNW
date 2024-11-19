@@ -81,7 +81,7 @@ const Header = () => {
                             value={search}
                             placeholder="O que você procura?"
                             onChange={(e) => setSearch(e.target.value)}
-                            onKeyDown={(e) => e.key === "Enter" && hendleSearch()} 
+                            onKeyDown={(e) => e.key === "Enter" ? hendleSearch() : null} 
                         />
                         
                         <div 
