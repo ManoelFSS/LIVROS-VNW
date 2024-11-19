@@ -6,7 +6,7 @@ export const BooksContext = createContext();
 export const BooksProvider = ({ children }) => {
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [bookSearch, setBookSearch] = useState("books");
+    const [bookSearch, setBookSearch] = useState(null);
 
     useEffect(() => {
         const fetchBooks = async () => {
@@ -14,10 +14,11 @@ export const BooksProvider = ({ children }) => {
                 const response = await axios.get("https://openlibrary.org/search.json", {
                     params: {
                         q: bookSearch,
-                        limit: 15,
+                        limit: 4,
                     },
                 });
                 setBooks(response.data.docs || []);
+                console.log(response.data || []);
             } catch (error) {
                 console.error("Erro ao buscar livros:", error);
             } finally {
@@ -29,7 +30,7 @@ export const BooksProvider = ({ children }) => {
     }, [bookSearch]); // Atualiza ao mudar o termo de busca
 
     return (
-        <BooksContext.Provider value={{ books, loading, setLoading, setBookSearch }}>
+        <BooksContext.Provider value={{ books, loading, bookSearch, setLoading, setBookSearch }}>
             {children} 
         </BooksContext.Provider>
     );

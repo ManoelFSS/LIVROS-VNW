@@ -5,6 +5,28 @@
     justify-content: center;
     padding: 20px 0;
 
+    .not_found {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: solid 2px #005695;
+        padding: 20px;
+        border-radius: 10px;
+
+
+
+
+        p {
+            color: red;
+            max-width: 280px;
+            overflow-wrap: break-word;
+            text-align: center;
+            padding: 5px ;
+            
+        }
+    }
+
     .container_books {
         width: 90%;
 

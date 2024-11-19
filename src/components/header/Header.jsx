@@ -27,7 +27,13 @@ const Header = () => {
 
     const hendleSearch = () => {
         setLoading(true);
+        if (search === "") {
+            setBookSearch(null);
+            setLoading(false);
+            return;
+        }
         setBookSearch(search);
+        setSearch("");
     };
 
     const hendlToggle = () => {
@@ -56,17 +62,21 @@ const Header = () => {
                     <div className={S.menuArea}>
                         <ul className={S.list}>
                             <Link onClick={() => hendlToggle()} className={S.link} to="/"><li>Início</li></Link>
-                            <Link onClick={() => hendlToggle()} className={S.link} to="/books"><li>Livros Doados</li></Link>
+                            <Link onClick={() => {hendlToggle(), setBookSearch("books"), setLoading(true)}} className={S.link} to="/books"><li>Livros Doados</li></Link>
                             <Link onClick={() => hendlToggle()} className={S.link} to="/queroDpar"><li>Quero Doar</li></Link>
                         </ul>
                     </div>
                     <div className={S.searchBar}>
-                        <input 
-                            className={S.search}
-                            type="text" 
-                            placeholder="O que você procura?"
-                            onChange={(e) =>  setSearch(e.target.value)}
-                        />
+                        <Link to={"/books"}>
+                            <input 
+                                className={S.search}
+                                type="text" 
+                                value={search}
+                                placeholder="O que você procura?"
+                                onChange={(e) => setSearch(e.target.value)}
+                                onKeyPress={(e) => e.key === "Enter" && hendleSearch()}
+                            />
+                        </Link>
                         <div 
                             className={S.searchIcon} 
                             style={{backgroundColor: search !== "" ? "#013559" : "transparent"}}

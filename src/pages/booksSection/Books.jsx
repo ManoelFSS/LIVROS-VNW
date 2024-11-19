@@ -7,9 +7,7 @@ import { BooksContext } from "../../context/BooksContext.jsx";
 
 const Books = () => {
 
-    const { books, loading} = useContext(BooksContext);
-
-    console.log(books)
+    const { books, loading, bookSearch} = useContext(BooksContext);
 
     if (loading) {
         return (
@@ -19,10 +17,10 @@ const Books = () => {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        height: "100vh",
+                        minHeight: "calc(100vh - 12vh)",
                     }}
                 >
-                <p>Carregando...</p>
+                <img style={{width: "70px"}} src="https://agrimachinery.nic.in/Highcharts/throbber_12.gif" alt="" />
             </section>
         );
     }
@@ -35,10 +33,10 @@ const Books = () => {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    height: "100vh",
+                    minHeight: "calc(100vh - 12vh)",
                 }}
             >
-                <p>Nenhum livro encontrado.</p>
+                { bookSearch === null ? <p>Faça uma busca</p> : <div className={S.not_found}><h4>Sua busca</h4><p>{bookSearch}</p><span> sem resultado!</span></div> }
             </sectiom>
         )
     }
@@ -56,9 +54,9 @@ const Books = () => {
                         <BookCard
                             key={index}
                             image={book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST8aQMYwqo2nRqq8Ag8or6qRZaiWD244xJ5g&s" }
-                            title={book.title || "Título não disponível"}
+                            title={book.title  ? [book.title].slice(0, 1).join(", ") : "Título não disponível"}
                             autor={book.author_name ? book.author_name.slice(0, 1).join(", ") : "Autor não informado"}
-                            genre={book.subject ? book.subject.slice(0, 1).join(", ") : "Gênero não especificado"}
+                            genre={book.subject ? book.subject.slice(0, 2).join(", ") : "Gênero não especificado"}
                         />
                     ))}
                 </div>

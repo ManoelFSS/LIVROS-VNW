@@ -2,7 +2,7 @@
 
 .card {
     display: flex;
-    width: 240px;
+    width: 220px;
     flex-direction: column;
     align-items: center;
     gap: 10px;
@@ -10,10 +10,17 @@
     border: solid 2px #005695;
     padding: 20px;
     text-align: center;
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1);
+    }
 
     img {
-        width: 100px;
-        height: 130px;
+        width: 120px;
+        height: 150px;
     }
 
     h3 {    
