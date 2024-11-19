@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import S from "./Styles.module.scss"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/livro-logo.png"
 import { useContext } from "react";
 import { BooksContext } from "../../context/BooksContext.jsx";
@@ -10,6 +10,8 @@ import { AiFillCloseSquare } from "react-icons/ai";
 import { IoSearchSharp, IoMenu  } from "react-icons/io5";
 
 const Header = () => {
+
+    const navigate = useNavigate();
 
     const [toggle, setToggle] = useState(true);
     const { setBookSearch,  setLoading  } = useContext(BooksContext);
@@ -26,6 +28,7 @@ const Header = () => {
     }, []);
 
     const hendleSearch = () => {
+        navigate("/books")
         setLoading(true);
         if (search === "") {
             setBookSearch(null);
@@ -67,16 +70,16 @@ const Header = () => {
                         </ul>
                     </div>
                     <div className={S.searchBar}>
-                        <Link to={"/books"}>
-                            <input 
-                                className={S.search}
-                                type="text" 
-                                value={search}
-                                placeholder="O que você procura?"
-                                onChange={(e) => setSearch(e.target.value)}
-                                onKeyPress={(e) => e.key === "Enter" && hendleSearch()}
-                            />
-                        </Link>
+                        
+                        <input 
+                            className={S.search}
+                            type="text" 
+                            value={search}
+                            placeholder="O que você procura?"
+                            onChange={(e) => setSearch(e.target.value)}
+                            onKeyPress={(e) => e.key === "Enter" && hendleSearch()}
+                        />
+                        
                         <div 
                             className={S.searchIcon} 
                             style={{backgroundColor: search !== "" ? "#013559" : "transparent"}}
