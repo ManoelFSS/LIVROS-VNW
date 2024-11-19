@@ -17,9 +17,9 @@ const Header = () => {
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth > 500) {
-                setToggle(false); // Fecha o menu automaticamente em telas grandes
-            }
+            const nav = document.querySelector("nav");
+            nav.classList.remove(S.activeToggle);
+            setToggle(true);
         };
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
@@ -29,6 +29,12 @@ const Header = () => {
         setLoading(true);
         setBookSearch(search);
     };
+
+    const hendlToggle = () => {
+        const nav = document.querySelector("nav");
+        nav.classList.toggle(S.activeToggle);
+        setToggle(!toggle);
+    }
 
     return (
         <header className={S.header}>
@@ -46,12 +52,12 @@ const Header = () => {
                         Livros Vai na Web
                     </h1>
                 </section>
-                <nav style={{right: toggle ?  "-250px": "0" }}>
+                <nav>
                     <div className={S.menuArea}>
                         <ul className={S.list}>
-                            <Link className={S.link} to="/"><li>Início</li></Link>
-                            <Link className={S.link} to="/books"><li>Livros Doados</li></Link>
-                            <Link className={S.link} to="/queroDpar"><li>Quero Doar</li></Link>
+                            <Link onClick={() => hendlToggle()} className={S.link} to="/"><li>Início</li></Link>
+                            <Link onClick={() => hendlToggle()} className={S.link} to="/books"><li>Livros Doados</li></Link>
+                            <Link onClick={() => hendlToggle()} className={S.link} to="/queroDpar"><li>Quero Doar</li></Link>
                         </ul>
                     </div>
                     <div className={S.searchBar}>
@@ -61,20 +67,26 @@ const Header = () => {
                             placeholder="O que você procura?"
                             onChange={(e) =>  setSearch(e.target.value)}
                         />
-                        <IoSearchSharp 
-                            className={S.icon} 
-                            onClick={() => hendleSearch()}
-                        />
+                        <div 
+                            className={S.searchIcon} 
+                            style={{backgroundColor: search !== "" ? "#013559" : "transparent"}}
+                        >
+                            <IoSearchSharp 
+                                className={S.icon} 
+                                onClick={() => hendleSearch()}
+                            />
+                        </div>
                     </div>
                 </nav>
                 { toggle ? 
                     <IoMenu 
                         className={S.toggle}
-                        onClick={() => setToggle(!toggle)}
-                    /> :
+                        onClick={() => hendlToggle()}
+                    /> 
+                    :
                     <AiFillCloseSquare 
                         className={S.toggle}
-                        onClick={() => setToggle(!toggle)}
+                        onClick={() => hendlToggle()}
                     />
                 }
             </section>

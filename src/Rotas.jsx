@@ -5,7 +5,7 @@ import Books from './pages/booksSection/Books'
 
 const Rotas = () => {
     return (
-        <section  style={{ paddingTop: '12vh' }}>
+        <section  style={{ minHeight: 'calc(100vh - 12vh)' }}>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/books" element={<Books />} />

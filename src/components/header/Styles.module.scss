@@ -111,7 +111,6 @@
                 border: solid 2px white;
                 height: 40px;
                 border-radius: 20px;
-                padding-right: 1rem;
 
                 .search {
                     height: 100%;
@@ -138,12 +137,22 @@
                         width: 170px ;
                     }
                 }
-    
-                .icon {
-                    color: white;
-                    font-size: 1.4rem;
-                    cursor: pointer;
+                .searchIcon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 40px;
+                    height: 34px;
+                    border-radius: 20px 0 0 20px;
+                    border-radius:  0 20px 20px 0;
+
+                    .icon {
+                        font-size: 1.2rem;
+                        color: white;
+                        cursor: pointer;
+                    }
                 }
+                
             }
 
             @media (max-width: 880px) {
@@ -153,6 +162,7 @@
                 flex-direction: column-reverse;
                 width: 250px;
                 height: 100vh;
+                right: -250px;
                 top: 12vh;
                 z-index: 99;
                 background-color: #013559;
@@ -160,6 +170,12 @@
 
             @media screen and (max-height: 500px) {
                 top: 15vh;
+            }
+        }
+
+        @media (max-width: 880px) {
+            .activeToggle {
+                right: 0;
             }
         }
 
