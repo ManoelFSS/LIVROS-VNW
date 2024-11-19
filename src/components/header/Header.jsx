@@ -79,6 +79,7 @@ const Header = () => {
                             placeholder="O que você procura?"
                             onChange={(e) => setSearch(e.target.value)}
                             onKeyPress={(e) => e.key === "Enter" && hendleSearch()}
+                            onClick={(e) => e.stopPropagation()} 
                         />
                         
                         <div 
