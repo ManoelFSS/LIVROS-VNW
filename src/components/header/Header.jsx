@@ -17,16 +17,6 @@ const Header = () => {
     const { setBookSearch,  setLoading  } = useContext(BooksContext);
     const [search, setSearch] = useState("");
 
-    useEffect(() => {
-        const handleResize = () => {
-            const nav = document.querySelector("nav");
-            nav.classList.remove(S.activeToggle);
-            setToggle(true);
-        };
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
     const hendleSearch = () => {
 
         setLoading(true);
