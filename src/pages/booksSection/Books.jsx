@@ -27,7 +27,7 @@ const Books = () => {
 
     if (!books.length)  {
         return (
-            <sectiom 
+            <section
                 className={S.container}
                 style={{
                     display: "flex",
@@ -37,7 +37,7 @@ const Books = () => {
                 }}
             >
                 { bookSearch === null ? <p>Faça uma busca</p> : <div className={S.not_found}><h4>Sua busca</h4><p>{bookSearch}</p><span> sem resultado!</span></div> }
-            </sectiom>
+            </section>
         )
     }
 

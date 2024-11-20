@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import S from "./Styles.module.scss"
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/livro-logo.png"
@@ -30,6 +30,7 @@ const Header = () => {
         navigate("/books")
         setBookSearch(search);
         setSearch("");
+        hendlToggle();
 
     };
 
