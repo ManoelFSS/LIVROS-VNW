@@ -66,13 +66,13 @@ const Header = () => {
                     </h1>
                 </section>
                 <nav>
-                    <div className={S.menuArea}>
+                    <section className={S.menuArea}>
                         <ul className={S.list}>
                             <Link onClick={() => hendlToggle()} className={S.link} to="/"><li>Início</li></Link>
                             <Link onClick={() => {hendlToggle(), setBookSearch("books"), setLoading(true)}} className={S.link} to="/books"><li>Livros Doados</li></Link>
                             <Link onClick={() => hendlToggle()} className={S.link} to="/queroDpar"><li>Quero Doar</li></Link>
                         </ul>
-                    </div>
+                    </section>
                     <div className={S.searchBar}>
                         
                         <input 
@@ -95,19 +95,20 @@ const Header = () => {
                         </div>
                     </div>
                 </nav>
-                { toggle ? 
-                    <IoMenu 
-                        className={S.toggle}
-                        onClick={() => hendlToggle()}
-                    /> 
-                    :
-                    <AiFillCloseSquare 
-                        className={S.toggle}
-                        onClick={() => hendlToggle()}
-                    />
-                }
+                <div>
+                    { toggle ? 
+                        <IoMenu 
+                            className={S.toggle}
+                            onClick={() => hendlToggle()}
+                        /> 
+                        :
+                        <AiFillCloseSquare 
+                            className={S.toggle}
+                            onClick={() => hendlToggle()}
+                        />
+                    }
+                </div>
             </section>
-            
         </header>
     )
 }
