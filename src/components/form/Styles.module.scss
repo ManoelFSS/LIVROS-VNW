@@ -1,0 +1,62 @@
+
+.card {
+    padding: 20px;
+    max-width: 280px;
+    border: solid 2px #005695;
+    border-radius: 10px;
+
+    .card_header {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+
+        .icon {
+            color: #005695;
+            font-size: 3rem;
+        }
+
+        p {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #005695;
+        }
+    }
+
+    form {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+
+        input {
+            width: 100%;
+            height: 30px;
+            border-radius: 8px;
+            border: solid 2px #005695;
+            padding: 0 10px;
+            outline: none;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        button {
+            width: 120px;
+            height: 40px;
+            border: none;
+            background-color: #005695;
+            border-radius: 8px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color:  #026db9;
+            }
+        }
+    }
+}

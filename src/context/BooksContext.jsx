@@ -14,7 +14,7 @@ export const BooksProvider = ({ children }) => {
                 const response = await axios.get("https://openlibrary.org/search.json", {
                     params: {
                         q: bookSearch,
-                        limit: 6,
+                        limit: 10,
                     },
                 });
 

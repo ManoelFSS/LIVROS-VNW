@@ -45,11 +45,13 @@ const Header = () => {
 
             <section className={S.container_header}>
                 <section>
-                    <img 
-                        className={S.logo} 
-                        src={Logo}
-                        alt="logo livro-vnw" 
-                    />
+                    <Link to={"/"}>
+                        <img 
+                            className={S.logo} 
+                            src={Logo}
+                            alt="logo livro-vnw" 
+                        />
+                    </Link>
                     <h1 
                         className={S.title}
                     >   
@@ -61,7 +63,7 @@ const Header = () => {
                         <ul className={S.list}>
                             <Link onClick={() => hendlToggle()} className={S.link} to="/"><li>Início</li></Link>
                             <Link onClick={() => {hendlToggle(), setBookSearch("books"), setLoading(true)}} className={S.link} to="/books"><li>Livros Doados</li></Link>
-                            <Link onClick={() => hendlToggle()} className={S.link} to="/queroDpar"><li>Quero Doar</li></Link>
+                            <Link onClick={() => hendlToggle()} className={S.link} to="/queroDoar"><li>Quero Doar</li></Link>
                         </ul>
                     </section>
                     <div className={S.searchBar}>
