@@ -17,7 +17,7 @@ const Header = () => {
     const { setBookSearch,  setLoading  } = useContext(BooksContext);
     const [search, setSearch] = useState("");
 
-    const hendleSearch = () => {
+    const hendleSearch = (e) => {
 
         setLoading(true);
 
@@ -31,6 +31,7 @@ const Header = () => {
         setBookSearch(search);
         setSearch("");
         hendlToggle();
+        e.target.blur();
 
     };
 
@@ -74,7 +75,7 @@ const Header = () => {
                             value={search}
                             placeholder="O que você procura?"
                             onChange={(e) => setSearch(e.target.value)}
-                            onKeyDown={(e) => e.key === "Enter" ? hendleSearch() : null} 
+                            onKeyDown={(e) => e.key === "Enter" ? hendleSearch(e) : null} 
                         />
                         
                         <div 
